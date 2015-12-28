@@ -1,0 +1,2049 @@
+
+R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "odseq"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> base::assign(".ExTimings", "odseq-Ex.timings", pos = 'CheckExEnv')
+> base::cat("name\tuser\tsystem\telapsed\n", file=base::get(".ExTimings", pos = 'CheckExEnv'))
+> base::assign(".format_ptime",
++ function(x) {
++   if(!is.na(x[4L])) x[1L] <- x[1L] + x[4L]
++   if(!is.na(x[5L])) x[2L] <- x[2L] + x[5L]
++   options(OutDec = '.')
++   format(x[1L:3L], digits = 7L)
++ },
++ pos = 'CheckExEnv')
+> 
+> ### * </HEADER>
+> library('odseq')
+Loading required package: msa
+Loading required package: Biostrings
+Loading required package: BiocGenerics
+Loading required package: parallel
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    Filter, Find, Map, Position, Reduce, anyDuplicated, append,
+    as.data.frame, as.vector, cbind, colnames, do.call, duplicated,
+    eval, evalq, get, grep, grepl, intersect, is.unsorted, lapply,
+    lengths, mapply, match, mget, order, paste, pmax, pmax.int, pmin,
+    pmin.int, rank, rbind, rownames, sapply, setdiff, sort, table,
+    tapply, union, unique, unlist, unsplit
+
+Loading required package: S4Vectors
+Loading required package: stats4
+Loading required package: IRanges
+Loading required package: XVector
+Loading required package: kebabs
+Loading required package: kernlab
+
+Attaching package: ‘kernlab’
+
+The following object is masked from ‘package:Biostrings’:
+
+    type
+
+
+Attaching package: ‘kebabs’
+
+The following object is masked from ‘package:stats’:
+
+    heatmap
+
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("odseq-package")
+> ### * odseq-package
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: odseq-package
+> ### Title: Outlier detection in multiple sequence alignments
+> ### Aliases: odseq-package
+> 
+> ### ** Examples
+> 
+> data(seqs)
+> al <- msa(seqs)
+use default substitution matrix
+> odseq(al, distance_metric = "affine", B = 1000, threshold = 0.025)
+                                    Q9F809.1.76 
+                                          FALSE 
+                                   D4I4P5.13.88 
+                                          FALSE 
+                                  E5BB17.42.117 
+                                          FALSE 
+                                A0A0C8ZVD0.1.76 
+                                          FALSE 
+                                A0A0F7JHC1.1.76 
+                                          FALSE 
+                                    B0ZE05.1.76 
+                                          FALSE 
+                                    B1MUC0.1.76 
+                                          FALSE 
+                                    M7RET1.1.76 
+                                          FALSE 
+                                    M8QJN2.1.76 
+                                          FALSE 
+                                    Q9KJ82.1.76 
+                                          FALSE 
+                                    S4KUZ8.1.76 
+                                          FALSE 
+                                    T2QBL4.1.76 
+                                          FALSE 
+                                    B0EYM2.1.76 
+                                          FALSE 
+                                    E9YM65.1.76 
+                                          FALSE 
+                                    K3K332.1.76 
+                                          FALSE 
+                                A0A060RIR1.1.76 
+                                          FALSE 
+                                    A9LK87.1.76 
+                                          FALSE 
+                                    D8B5E1.1.76 
+                                          FALSE 
+                                    G3CAG9.1.76 
+                                          FALSE 
+                                    G3CAS3.1.76 
+                                          FALSE 
+                                    D0QML3.1.76 
+                                          FALSE 
+                                    G3CA69.1.76 
+                                          FALSE 
+                                    B4TLV4.1.76 
+                                          FALSE 
+                                    F0JY99.1.76 
+                                          FALSE 
+                                    H3RLY1.1.76 
+                                          FALSE 
+                                    Y1GKL8.1.76 
+                                          FALSE 
+                                    J5UN29.1.64 
+                                          FALSE 
+                                A0A0A3ZSY6.1.77 
+                                          FALSE 
+                                    E5YNK1.1.74 
+                                          FALSE 
+                                    Q70W75.1.74 
+                                          FALSE 
+                                A0A0F5PHW8.1.74 
+                                          FALSE 
+                                A0A0E4G3K9.1.74 
+                                          FALSE 
+                                    C4K638.1.74 
+                                          FALSE 
+                                A0A068Z196.1.75 
+                                          FALSE 
+                                    U2L622.1.77 
+                                          FALSE 
+                                    E6WMF1.1.77 
+                                          FALSE 
+                               A0A0F6VXC8.10.79 
+                                          FALSE 
+                                    V5U7C5.1.63 
+                                          FALSE 
+                                    C9Y5R7.8.79 
+                                          FALSE 
+                                    R4IT59.8.78 
+                                          FALSE 
+                                A0A0F8GEA6.1.78 
+                                          FALSE 
+                                A0A085HRR6.9.59 
+                                          FALSE 
+                                    B2CBF1.1.79 
+                                          FALSE 
+                                A0A0E2Q9I2.1.75 
+                                          FALSE 
+                               A0A0E2QEH4.17.62 
+                                          FALSE 
+                                    W8UA11.1.72 
+                                          FALSE 
+                                    B7UF62.1.74 
+                                          FALSE 
+                                   K9W7U5.16.49 
+                                          FALSE 
+                                   D8G1Y5.17.50 
+                                          FALSE 
+                               A0A0D8ZNJ1.15.48 
+                                          FALSE 
+                                   K7X304.11.45 
+                                          FALSE 
+                                    Q8YJV9.4.49 
+                                          FALSE 
+                               A0A0D6K9Y8.15.50 
+                                          FALSE 
+                                   L7L2A9.46.83 
+                                          FALSE 
+                                   M3TUC6.43.86 
+                                          FALSE 
+                               A0A0D6YNY8.18.50 
+                                          FALSE 
+                                    E3DL53.2.68 
+                                          FALSE 
+                                    Q7X3U6.1.66 
+                                          FALSE 
+                                    D2TE61.2.68 
+                                          FALSE 
+                                    Q8GEG7.1.66 
+                                          FALSE 
+                                    H8NZG5.2.67 
+                                          FALSE 
+                                    H2J1I3.2.67 
+                                          FALSE 
+                                A0A085G0L2.2.67 
+                                          FALSE 
+                                A0A085NVQ6.3.66 
+                                          FALSE 
+                                    D8ARD1.3.66 
+                                          FALSE 
+                                    E9TBD2.3.66 
+                                          FALSE 
+                                    I2WCR7.3.66 
+                                          FALSE 
+                                    T6L350.3.66 
+                                          FALSE 
+                                    T9A0E0.3.66 
+                                          FALSE 
+                                    D2U3S4.1.63 
+                                          FALSE 
+                               A0A0D6KFG1.24.57 
+                                          FALSE 
+                                   C3JHM7.12.52 
+                                          FALSE 
+                               A0A0C2WIL6.36.77 
+                                          FALSE 
+                               A0A0D8HNE6.24.64 
+                                          FALSE 
+                                   L0GU74.38.80 
+                                          FALSE 
+                             A0A075PIB8.136.179 
+                                          FALSE 
+                               A0A0D6KAV6.24.65 
+                                          FALSE 
+                                   F4Y0E3.13.51 
+                                          FALSE 
+                                    K9ZRY5.6.50 
+                                          FALSE 
+                                    G6FSM4.6.40 
+                                          FALSE 
+                                    K9W712.6.40 
+                                          FALSE 
+                               A0A0C2R0C4.20.61 
+                                          FALSE 
+                                A0A0D6YB80.6.40 
+                                          FALSE 
+                                A0A0C2QTU2.7.48 
+                                          FALSE 
+                                   R9WTK0.17.54 
+                                          FALSE 
+                                    K9V175.6.48 
+                                          FALSE 
+                                    K9VLQ5.5.51 
+                                          FALSE 
+                               A0A081BTE4.17.49 
+                                          FALSE 
+                               A0A0F9QTI2.11.44 
+                                          FALSE 
+                               A0A0F8VDY7.10.45 
+                                          FALSE 
+                                    D7E264.9.49 
+                                          FALSE 
+                                   X1VRR3.23.64 
+                                          FALSE 
+                                    X1EE99.7.45 
+                                          FALSE 
+                                    A2C3W3.2.43 
+                                          FALSE 
+                                   B3GN64.21.66 
+                                          FALSE 
+                                   Q8GF42.21.66 
+                                          FALSE 
+                               A0A098J240.30.68 
+                                          FALSE 
+                               A0A077SJD0.28.66 
+                                          FALSE 
+                               A0A0A1LSN2.28.66 
+                                          FALSE 
+                                   U4M8Z1.28.66 
+                                          FALSE 
+                               A0A061YVH7.27.66 
+                                          FALSE 
+                                   G4U4S9.27.66 
+                                          FALSE 
+                                   W4S9C4.27.66 
+                                          FALSE 
+                                   W4SGQ6.27.66 
+                                          FALSE 
+                                   E7PDY6.33.67 
+                                          FALSE 
+                                   Q88BQ0.33.67 
+                                          FALSE 
+                                   S6MVM0.33.67 
+                                          FALSE 
+                               A0A0D5A0A8.32.69 
+                                          FALSE 
+                               A0A0F7KYP1.32.69 
+                                          FALSE 
+                                   B7NZZ8.23.66 
+                                          FALSE 
+                                   Q663B7.25.67 
+                                          FALSE 
+                                   H0FCF2.24.59 
+                                          FALSE 
+                                   T2AAN9.24.59 
+                                          FALSE 
+                               A0A0F1A5V8.31.66 
+                                          FALSE 
+                               A0A0F3Y7M4.31.66 
+                                          FALSE 
+                                   A1Y2U0.31.66 
+                                          FALSE 
+                                   H6BDZ3.31.66 
+                                          FALSE 
+                                   Q4W1Q5.31.66 
+                                          FALSE 
+                                   Q9XAW9.31.66 
+                                          FALSE 
+                               A0A023ECI8.18.61 
+                                          FALSE 
+                               A0A023RQY2.23.62 
+                                          FALSE 
+                               A0A0F9GZY2.19.68 
+                                          FALSE 
+                                   X0R121.19.68 
+                                          FALSE 
+                                   X0QTB5.19.68 
+                                          FALSE 
+                                   H9BQT8.15.66 
+                                          FALSE 
+                               A0A0B2A0S2.29.74 
+                                          FALSE 
+                               A0A0C1Q4C5.29.74 
+                                          FALSE 
+                                   B2UKE0.29.74 
+                                          FALSE 
+                                   C6BRA3.29.74 
+                                          FALSE 
+                                   R0CDV9.29.74 
+                                          FALSE 
+                                   S9RRB2.29.74 
+                                          FALSE 
+                                   U3G6E7.29.74 
+                                          FALSE 
+                               A0A098I7P7.35.71 
+                                          FALSE 
+                               A0A0B0J2G7.35.71 
+                                          FALSE 
+                                   M4U470.35.71 
+                                          FALSE 
+                                   H1XN86.35.71 
+                                          FALSE 
+                                   X6QB94.26.78 
+                                          FALSE 
+                               A0A068RED7.32.75 
+                                          FALSE 
+                                    J2DK02.2.38 
+                                          FALSE 
+                               A0A060VI02.28.75 
+                                          FALSE 
+                                   C4K5C9.32.76 
+                                          FALSE 
+                                   C4K813.32.71 
+                                          FALSE 
+                               A0A0A3YL57.31.75 
+                                          FALSE 
+                                   C6AEQ6.31.69 
+                                          FALSE 
+                                   J0PP35.32.69 
+                                          FALSE 
+                                   J1IXM2.31.69 
+                                          FALSE 
+                                   J0Q1X0.32.68 
+                                          FALSE 
+                                   F9ZUV4.37.71 
+                                          FALSE 
+                                   E6Q8U3.31.68 
+                                          FALSE 
+                                   C8X5T5.33.69 
+                                          FALSE 
+                                   C8X5U4.15.69 
+                                          FALSE 
+                                   A3X2R3.39.78 
+                                          FALSE 
+                               A0A0A3WH88.35.82 
+                                          FALSE 
+                                   U4M7N6.35.82 
+                                          FALSE 
+                                A0A098J768.2.40 
+                                          FALSE 
+                               A0A0A1KP82.39.83 
+                                          FALSE 
+                               A0A096Y6L9.31.73 
+                                          FALSE 
+                               A0A098KWW6.31.73 
+                                          FALSE 
+                                   K5D831.31.74 
+                                          FALSE 
+                                   L7C888.21.67 
+                                          FALSE 
+                                   L7CIM3.27.75 
+                                          FALSE 
+                                   M5S0M0.30.72 
+                                          FALSE 
+                               A0A0B3SGQ8.21.68 
+                                          FALSE 
+                                   I1AZ85.17.67 
+                                          FALSE 
+                                   K1ZNV2.51.98 
+                                          FALSE 
+                                  V5XUV2.59.101 
+                                          FALSE 
+                               A0A0F5D7X9.29.77 
+                                          FALSE 
+                               A0A073CA55.39.78 
+                                          FALSE 
+                                   V6AS99.13.47 
+                                          FALSE 
+                              A0A0D5NBM9.86.124 
+                                          FALSE 
+                                  Q74CF5.86.124 
+                                          FALSE 
+                              A0A0C1QNN3.86.124 
+                                          FALSE 
+                                   Q8FLJ1.36.89 
+                                          FALSE 
+                                 K9YBZ8.616.662 
+                                          FALSE 
+                                 K9YXZ0.584.635 
+                                          FALSE 
+                               A0A0F4IEC9.21.64 
+                                          FALSE 
+                               A0A0F0GYE1.21.64 
+                                          FALSE 
+                               A0A0F4KHC3.23.64 
+                                          FALSE 
+                                   B4V2V5.25.66 
+                                          FALSE 
+                                    Q0F3N8.3.47 
+                                          FALSE 
+                                A0A0A2HZR0.2.45 
+                                          FALSE 
+                               A0A015X2U6.50.91 
+                                          FALSE 
+                               A0A088F5T3.50.91 
+                                          FALSE 
+                                   B6W3D5.50.91 
+                                          FALSE 
+                                   C6IQM4.50.91 
+                                          FALSE 
+                                   C6Z9A5.50.91 
+                                          FALSE 
+                                   F3PNY5.50.91 
+                                          FALSE 
+                                   F7LMW8.50.91 
+                                          FALSE 
+                                   G6AV06.50.91 
+                                          FALSE 
+                                   G9S3I8.50.91 
+                                          FALSE 
+                                   I9AJH4.50.91 
+                                          FALSE 
+                                   K1FRK6.50.91 
+                                          FALSE 
+                                   S0FB78.50.91 
+                                          FALSE 
+                               A0A015UAT9.33.83 
+                                          FALSE 
+                               A0A016CWP1.33.83 
+                                          FALSE 
+                                   B7AFD4.33.83 
+                                          FALSE 
+                                   E4VQV0.33.83 
+                                          FALSE 
+                                   I8YZQ4.33.83 
+                                          FALSE 
+                                   I9FBX3.33.83 
+                                          FALSE 
+                                   I9PU41.33.83 
+                                          FALSE 
+                               A0A015ZBQ2.33.83 
+                                          FALSE 
+                                   B3JIP8.33.83 
+                                          FALSE 
+                                   D1K5Q2.33.83 
+                                          FALSE 
+                                   K1U5Q5.33.83 
+                                          FALSE 
+                                    U1P7U7.2.44 
+                                          FALSE 
+                                    M0N320.2.44 
+                                          FALSE 
+                                    U1Q8F3.2.43 
+                                          FALSE 
+                                    F7PJH7.2.44 
+                                          FALSE 
+                                    Q6MCI6.5.39 
+                                          FALSE 
+                                A0A0F8YVM5.8.42 
+                                          FALSE 
+                                   R6TXF2.28.77 
+                                          FALSE 
+ random.sequence.32.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.68.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.4.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.14.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.5.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.2.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.78.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.7.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.20.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.8.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.96.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.16.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.60.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.23.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.9.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.42.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.49.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.76.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.91.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.79.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.45.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.6.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.90.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.93.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.94.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.48.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.95.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.89.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.97.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.98.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.82.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.1.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.36.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.3.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.10.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.24.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.11.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.59.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.12.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.46.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.13.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.57.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.15.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.73.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.18.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.87.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.92.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.19.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.83.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.21.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.43.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.58.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.25.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.99.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.27.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.38.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.28.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.56.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.29.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.80.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.30.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.63.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.31.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.84.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.33.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.22.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.34.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.35.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.40.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.85.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.37.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.55.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.39.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.54.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.44.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.74.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.47.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.64.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.50.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.51.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.61.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.53.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.62.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.52.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.65.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.66.consisting.of.100.residues. 
+                                           TRUE 
+random.sequence.100.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.69.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.86.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.70.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.41.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.71.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.17.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.81.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.75.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.67.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.77.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.88.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.72.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.26.consisting.of.100.residues. 
+                                           TRUE 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("odseq-package", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("odseq")
+> ### * odseq
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: odseq
+> ### Title: Outlier detection in a multiple sequence alignment
+> ### Aliases: odseq
+> 
+> ### ** Examples
+> 
+> data(seqs)
+> al <- msa(seqs)
+use default substitution matrix
+> odseq(al, distance_metric = "affine", B = 1000, threshold = 0.025)
+                                    Q9F809.1.76 
+                                          FALSE 
+                                   D4I4P5.13.88 
+                                          FALSE 
+                                  E5BB17.42.117 
+                                          FALSE 
+                                A0A0C8ZVD0.1.76 
+                                          FALSE 
+                                A0A0F7JHC1.1.76 
+                                          FALSE 
+                                    B0ZE05.1.76 
+                                          FALSE 
+                                    B1MUC0.1.76 
+                                          FALSE 
+                                    M7RET1.1.76 
+                                          FALSE 
+                                    M8QJN2.1.76 
+                                          FALSE 
+                                    Q9KJ82.1.76 
+                                          FALSE 
+                                    S4KUZ8.1.76 
+                                          FALSE 
+                                    T2QBL4.1.76 
+                                          FALSE 
+                                    B0EYM2.1.76 
+                                          FALSE 
+                                    E9YM65.1.76 
+                                          FALSE 
+                                    K3K332.1.76 
+                                          FALSE 
+                                A0A060RIR1.1.76 
+                                          FALSE 
+                                    A9LK87.1.76 
+                                          FALSE 
+                                    D8B5E1.1.76 
+                                          FALSE 
+                                    G3CAG9.1.76 
+                                          FALSE 
+                                    G3CAS3.1.76 
+                                          FALSE 
+                                    D0QML3.1.76 
+                                          FALSE 
+                                    G3CA69.1.76 
+                                          FALSE 
+                                    B4TLV4.1.76 
+                                          FALSE 
+                                    F0JY99.1.76 
+                                          FALSE 
+                                    H3RLY1.1.76 
+                                          FALSE 
+                                    Y1GKL8.1.76 
+                                          FALSE 
+                                    J5UN29.1.64 
+                                          FALSE 
+                                A0A0A3ZSY6.1.77 
+                                          FALSE 
+                                    E5YNK1.1.74 
+                                          FALSE 
+                                    Q70W75.1.74 
+                                          FALSE 
+                                A0A0F5PHW8.1.74 
+                                          FALSE 
+                                A0A0E4G3K9.1.74 
+                                          FALSE 
+                                    C4K638.1.74 
+                                          FALSE 
+                                A0A068Z196.1.75 
+                                          FALSE 
+                                    U2L622.1.77 
+                                          FALSE 
+                                    E6WMF1.1.77 
+                                          FALSE 
+                               A0A0F6VXC8.10.79 
+                                          FALSE 
+                                    V5U7C5.1.63 
+                                          FALSE 
+                                    C9Y5R7.8.79 
+                                          FALSE 
+                                    R4IT59.8.78 
+                                          FALSE 
+                                A0A0F8GEA6.1.78 
+                                          FALSE 
+                                A0A085HRR6.9.59 
+                                          FALSE 
+                                    B2CBF1.1.79 
+                                          FALSE 
+                                A0A0E2Q9I2.1.75 
+                                          FALSE 
+                               A0A0E2QEH4.17.62 
+                                          FALSE 
+                                    W8UA11.1.72 
+                                          FALSE 
+                                    B7UF62.1.74 
+                                          FALSE 
+                                   K9W7U5.16.49 
+                                          FALSE 
+                                   D8G1Y5.17.50 
+                                          FALSE 
+                               A0A0D8ZNJ1.15.48 
+                                          FALSE 
+                                   K7X304.11.45 
+                                          FALSE 
+                                    Q8YJV9.4.49 
+                                          FALSE 
+                               A0A0D6K9Y8.15.50 
+                                          FALSE 
+                                   L7L2A9.46.83 
+                                          FALSE 
+                                   M3TUC6.43.86 
+                                          FALSE 
+                               A0A0D6YNY8.18.50 
+                                          FALSE 
+                                    E3DL53.2.68 
+                                          FALSE 
+                                    Q7X3U6.1.66 
+                                          FALSE 
+                                    D2TE61.2.68 
+                                          FALSE 
+                                    Q8GEG7.1.66 
+                                          FALSE 
+                                    H8NZG5.2.67 
+                                          FALSE 
+                                    H2J1I3.2.67 
+                                          FALSE 
+                                A0A085G0L2.2.67 
+                                          FALSE 
+                                A0A085NVQ6.3.66 
+                                          FALSE 
+                                    D8ARD1.3.66 
+                                          FALSE 
+                                    E9TBD2.3.66 
+                                          FALSE 
+                                    I2WCR7.3.66 
+                                          FALSE 
+                                    T6L350.3.66 
+                                          FALSE 
+                                    T9A0E0.3.66 
+                                          FALSE 
+                                    D2U3S4.1.63 
+                                          FALSE 
+                               A0A0D6KFG1.24.57 
+                                          FALSE 
+                                   C3JHM7.12.52 
+                                          FALSE 
+                               A0A0C2WIL6.36.77 
+                                          FALSE 
+                               A0A0D8HNE6.24.64 
+                                          FALSE 
+                                   L0GU74.38.80 
+                                          FALSE 
+                             A0A075PIB8.136.179 
+                                          FALSE 
+                               A0A0D6KAV6.24.65 
+                                          FALSE 
+                                   F4Y0E3.13.51 
+                                          FALSE 
+                                    K9ZRY5.6.50 
+                                          FALSE 
+                                    G6FSM4.6.40 
+                                          FALSE 
+                                    K9W712.6.40 
+                                          FALSE 
+                               A0A0C2R0C4.20.61 
+                                          FALSE 
+                                A0A0D6YB80.6.40 
+                                          FALSE 
+                                A0A0C2QTU2.7.48 
+                                          FALSE 
+                                   R9WTK0.17.54 
+                                          FALSE 
+                                    K9V175.6.48 
+                                          FALSE 
+                                    K9VLQ5.5.51 
+                                          FALSE 
+                               A0A081BTE4.17.49 
+                                          FALSE 
+                               A0A0F9QTI2.11.44 
+                                          FALSE 
+                               A0A0F8VDY7.10.45 
+                                          FALSE 
+                                    D7E264.9.49 
+                                          FALSE 
+                                   X1VRR3.23.64 
+                                          FALSE 
+                                    X1EE99.7.45 
+                                          FALSE 
+                                    A2C3W3.2.43 
+                                          FALSE 
+                                   B3GN64.21.66 
+                                          FALSE 
+                                   Q8GF42.21.66 
+                                          FALSE 
+                               A0A098J240.30.68 
+                                          FALSE 
+                               A0A077SJD0.28.66 
+                                          FALSE 
+                               A0A0A1LSN2.28.66 
+                                          FALSE 
+                                   U4M8Z1.28.66 
+                                          FALSE 
+                               A0A061YVH7.27.66 
+                                          FALSE 
+                                   G4U4S9.27.66 
+                                          FALSE 
+                                   W4S9C4.27.66 
+                                          FALSE 
+                                   W4SGQ6.27.66 
+                                          FALSE 
+                                   E7PDY6.33.67 
+                                          FALSE 
+                                   Q88BQ0.33.67 
+                                          FALSE 
+                                   S6MVM0.33.67 
+                                          FALSE 
+                               A0A0D5A0A8.32.69 
+                                          FALSE 
+                               A0A0F7KYP1.32.69 
+                                          FALSE 
+                                   B7NZZ8.23.66 
+                                          FALSE 
+                                   Q663B7.25.67 
+                                          FALSE 
+                                   H0FCF2.24.59 
+                                          FALSE 
+                                   T2AAN9.24.59 
+                                          FALSE 
+                               A0A0F1A5V8.31.66 
+                                          FALSE 
+                               A0A0F3Y7M4.31.66 
+                                          FALSE 
+                                   A1Y2U0.31.66 
+                                          FALSE 
+                                   H6BDZ3.31.66 
+                                          FALSE 
+                                   Q4W1Q5.31.66 
+                                          FALSE 
+                                   Q9XAW9.31.66 
+                                          FALSE 
+                               A0A023ECI8.18.61 
+                                          FALSE 
+                               A0A023RQY2.23.62 
+                                          FALSE 
+                               A0A0F9GZY2.19.68 
+                                          FALSE 
+                                   X0R121.19.68 
+                                          FALSE 
+                                   X0QTB5.19.68 
+                                          FALSE 
+                                   H9BQT8.15.66 
+                                          FALSE 
+                               A0A0B2A0S2.29.74 
+                                          FALSE 
+                               A0A0C1Q4C5.29.74 
+                                          FALSE 
+                                   B2UKE0.29.74 
+                                          FALSE 
+                                   C6BRA3.29.74 
+                                          FALSE 
+                                   R0CDV9.29.74 
+                                          FALSE 
+                                   S9RRB2.29.74 
+                                          FALSE 
+                                   U3G6E7.29.74 
+                                          FALSE 
+                               A0A098I7P7.35.71 
+                                          FALSE 
+                               A0A0B0J2G7.35.71 
+                                          FALSE 
+                                   M4U470.35.71 
+                                          FALSE 
+                                   H1XN86.35.71 
+                                          FALSE 
+                                   X6QB94.26.78 
+                                          FALSE 
+                               A0A068RED7.32.75 
+                                          FALSE 
+                                    J2DK02.2.38 
+                                          FALSE 
+                               A0A060VI02.28.75 
+                                          FALSE 
+                                   C4K5C9.32.76 
+                                          FALSE 
+                                   C4K813.32.71 
+                                          FALSE 
+                               A0A0A3YL57.31.75 
+                                          FALSE 
+                                   C6AEQ6.31.69 
+                                          FALSE 
+                                   J0PP35.32.69 
+                                          FALSE 
+                                   J1IXM2.31.69 
+                                          FALSE 
+                                   J0Q1X0.32.68 
+                                          FALSE 
+                                   F9ZUV4.37.71 
+                                          FALSE 
+                                   E6Q8U3.31.68 
+                                          FALSE 
+                                   C8X5T5.33.69 
+                                          FALSE 
+                                   C8X5U4.15.69 
+                                          FALSE 
+                                   A3X2R3.39.78 
+                                          FALSE 
+                               A0A0A3WH88.35.82 
+                                          FALSE 
+                                   U4M7N6.35.82 
+                                          FALSE 
+                                A0A098J768.2.40 
+                                          FALSE 
+                               A0A0A1KP82.39.83 
+                                          FALSE 
+                               A0A096Y6L9.31.73 
+                                          FALSE 
+                               A0A098KWW6.31.73 
+                                          FALSE 
+                                   K5D831.31.74 
+                                          FALSE 
+                                   L7C888.21.67 
+                                          FALSE 
+                                   L7CIM3.27.75 
+                                          FALSE 
+                                   M5S0M0.30.72 
+                                          FALSE 
+                               A0A0B3SGQ8.21.68 
+                                          FALSE 
+                                   I1AZ85.17.67 
+                                          FALSE 
+                                   K1ZNV2.51.98 
+                                          FALSE 
+                                  V5XUV2.59.101 
+                                          FALSE 
+                               A0A0F5D7X9.29.77 
+                                          FALSE 
+                               A0A073CA55.39.78 
+                                          FALSE 
+                                   V6AS99.13.47 
+                                          FALSE 
+                              A0A0D5NBM9.86.124 
+                                          FALSE 
+                                  Q74CF5.86.124 
+                                          FALSE 
+                              A0A0C1QNN3.86.124 
+                                          FALSE 
+                                   Q8FLJ1.36.89 
+                                          FALSE 
+                                 K9YBZ8.616.662 
+                                          FALSE 
+                                 K9YXZ0.584.635 
+                                          FALSE 
+                               A0A0F4IEC9.21.64 
+                                          FALSE 
+                               A0A0F0GYE1.21.64 
+                                          FALSE 
+                               A0A0F4KHC3.23.64 
+                                          FALSE 
+                                   B4V2V5.25.66 
+                                          FALSE 
+                                    Q0F3N8.3.47 
+                                          FALSE 
+                                A0A0A2HZR0.2.45 
+                                          FALSE 
+                               A0A015X2U6.50.91 
+                                          FALSE 
+                               A0A088F5T3.50.91 
+                                          FALSE 
+                                   B6W3D5.50.91 
+                                          FALSE 
+                                   C6IQM4.50.91 
+                                          FALSE 
+                                   C6Z9A5.50.91 
+                                          FALSE 
+                                   F3PNY5.50.91 
+                                          FALSE 
+                                   F7LMW8.50.91 
+                                          FALSE 
+                                   G6AV06.50.91 
+                                          FALSE 
+                                   G9S3I8.50.91 
+                                          FALSE 
+                                   I9AJH4.50.91 
+                                          FALSE 
+                                   K1FRK6.50.91 
+                                          FALSE 
+                                   S0FB78.50.91 
+                                          FALSE 
+                               A0A015UAT9.33.83 
+                                          FALSE 
+                               A0A016CWP1.33.83 
+                                          FALSE 
+                                   B7AFD4.33.83 
+                                          FALSE 
+                                   E4VQV0.33.83 
+                                          FALSE 
+                                   I8YZQ4.33.83 
+                                          FALSE 
+                                   I9FBX3.33.83 
+                                          FALSE 
+                                   I9PU41.33.83 
+                                          FALSE 
+                               A0A015ZBQ2.33.83 
+                                          FALSE 
+                                   B3JIP8.33.83 
+                                          FALSE 
+                                   D1K5Q2.33.83 
+                                          FALSE 
+                                   K1U5Q5.33.83 
+                                          FALSE 
+                                    U1P7U7.2.44 
+                                          FALSE 
+                                    M0N320.2.44 
+                                          FALSE 
+                                    U1Q8F3.2.43 
+                                          FALSE 
+                                    F7PJH7.2.44 
+                                          FALSE 
+                                    Q6MCI6.5.39 
+                                          FALSE 
+                                A0A0F8YVM5.8.42 
+                                          FALSE 
+                                   R6TXF2.28.77 
+                                          FALSE 
+ random.sequence.32.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.68.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.4.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.14.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.5.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.2.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.78.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.7.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.20.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.8.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.96.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.16.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.60.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.23.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.9.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.42.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.49.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.76.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.91.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.79.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.45.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.6.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.90.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.93.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.94.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.48.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.95.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.89.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.97.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.98.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.82.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.1.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.36.consisting.of.100.residues. 
+                                           TRUE 
+  random.sequence.3.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.10.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.24.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.11.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.59.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.12.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.46.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.13.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.57.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.15.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.73.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.18.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.87.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.92.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.19.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.83.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.21.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.43.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.58.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.25.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.99.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.27.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.38.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.28.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.56.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.29.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.80.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.30.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.63.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.31.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.84.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.33.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.22.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.34.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.35.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.40.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.85.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.37.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.55.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.39.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.54.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.44.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.74.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.47.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.64.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.50.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.51.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.61.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.53.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.62.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.52.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.65.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.66.consisting.of.100.residues. 
+                                           TRUE 
+random.sequence.100.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.69.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.86.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.70.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.41.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.71.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.17.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.81.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.75.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.67.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.77.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.88.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.72.consisting.of.100.residues. 
+                                           TRUE 
+ random.sequence.26.consisting.of.100.residues. 
+                                           TRUE 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("odseq", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("odseq_unaligned")
+> ### * odseq_unaligned
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: odseq_unaligned
+> ### Title: Outlier detection provided a distance/similarity matrix of
+> ###   sequences.
+> ### Aliases: odseq_unaligned
+> 
+> ### ** Examples
+> 
+> data(seqs)
+> sp <- spectrumKernel(k = 3)
+> mat <- getKernelMatrix(sp, seqs)
+> odseq_unaligned(mat, B = 1000, threshold = 0.025, type = "similarity")
+                                    Q9F809/1-76 
+                                          FALSE 
+                                   D4I4P5/13-88 
+                                          FALSE 
+                                  E5BB17/42-117 
+                                          FALSE 
+                                A0A0C8ZVD0/1-76 
+                                          FALSE 
+                                A0A0F7JHC1/1-76 
+                                          FALSE 
+                                    B0ZE05/1-76 
+                                          FALSE 
+                                    B1MUC0/1-76 
+                                          FALSE 
+                                    M7RET1/1-76 
+                                          FALSE 
+                                    M8QJN2/1-76 
+                                          FALSE 
+                                    Q9KJ82/1-76 
+                                          FALSE 
+                                    S4KUZ8/1-76 
+                                          FALSE 
+                                    T2QBL4/1-76 
+                                          FALSE 
+                                    B0EYM2/1-76 
+                                          FALSE 
+                                    E9YM65/1-76 
+                                          FALSE 
+                                A0A060RIR1/1-76 
+                                          FALSE 
+                                    A9LK87/1-76 
+                                          FALSE 
+                                    D8B5E1/1-76 
+                                          FALSE 
+                                    G3CAG9/1-76 
+                                          FALSE 
+                                    G3CAS3/1-76 
+                                          FALSE 
+                                    K3K332/1-76 
+                                          FALSE 
+                                    D0QML3/1-76 
+                                          FALSE 
+                                    G3CA69/1-76 
+                                          FALSE 
+                                    B4TLV4/1-76 
+                                          FALSE 
+                                    F0JY99/1-76 
+                                          FALSE 
+                                    E5YNK1/1-74 
+                                          FALSE 
+                                    Q70W75/1-74 
+                                          FALSE 
+                                A0A0F5PHW8/1-74 
+                                          FALSE 
+                                    H3RLY1/1-76 
+                                          FALSE 
+                                    Y1GKL8/1-76 
+                                          FALSE 
+                                A0A0E4G3K9/1-74 
+                                          FALSE 
+                                A0A0A3ZSY6/1-77 
+                                          FALSE 
+                                    J5UN29/1-64 
+                                          FALSE 
+                                    C4K638/1-74 
+                                          FALSE 
+                                A0A068Z196/1-75 
+                                          FALSE 
+                                    U2L622/1-77 
+                                          FALSE 
+                                    E6WMF1/1-77 
+                                          FALSE 
+                                    C9Y5R7/8-79 
+                                          FALSE 
+                               A0A0F6VXC8/10-79 
+                                          FALSE 
+                                    R4IT59/8-78 
+                                          FALSE 
+                                    V5U7C5/1-63 
+                                          FALSE 
+                                A0A0F8GEA6/1-78 
+                                          FALSE 
+                                    B2CBF1/1-79 
+                                          FALSE 
+                                    W8UA11/1-72 
+                                           TRUE 
+                                A0A0E2Q9I2/1-75 
+                                          FALSE 
+                                    B7UF62/1-74 
+                                           TRUE 
+                                A0A085HRR6/9-59 
+                                          FALSE 
+                               A0A0E2QEH4/17-62 
+                                          FALSE 
+                                    E3DL53/2-68 
+                                          FALSE 
+                                    D2TE61/2-68 
+                                          FALSE 
+                                    Q7X3U6/1-66 
+                                           TRUE 
+                                    Q8GEG7/1-66 
+                                           TRUE 
+                                A0A085NVQ6/3-66 
+                                          FALSE 
+                                    D8ARD1/3-66 
+                                          FALSE 
+                                    E9TBD2/3-66 
+                                          FALSE 
+                                    I2WCR7/3-66 
+                                          FALSE 
+                                    T6L350/3-66 
+                                          FALSE 
+                                    T9A0E0/3-66 
+                                          FALSE 
+                                    H8NZG5/2-67 
+                                          FALSE 
+                                    H2J1I3/2-67 
+                                          FALSE 
+                                A0A085G0L2/2-67 
+                                           TRUE 
+                               A0A0D6KAV6/24-65 
+                                           TRUE 
+                               A0A0D8ZNJ1/15-48 
+                                           TRUE 
+                                    K9ZRY5/6-50 
+                                           TRUE 
+                                   R6TXF2/28-77 
+                                           TRUE 
+                                    Q8YJV9/4-49 
+                                           TRUE 
+                               A0A098J240/30-68 
+                                          FALSE 
+                                   F4Y0E3/13-51 
+                                           TRUE 
+                                   X6QB94/26-78 
+                                          FALSE 
+                                   K1ZNV2/51-98 
+                                           TRUE 
+                                   K9W7U5/16-49 
+                                           TRUE 
+                                   L0GU74/38-80 
+                                           TRUE 
+                                   D8G1Y5/17-50 
+                                           TRUE 
+                                   C3JHM7/12-52 
+                                           TRUE 
+                               A0A060VI02/28-75 
+                                          FALSE 
+                               A0A023ECI8/18-61 
+                                           TRUE 
+                               A0A0D6K9Y8/15-50 
+                                           TRUE 
+                             A0A075PIB8/136-179 
+                                           TRUE 
+                                    D2U3S4/1-63 
+                                           TRUE 
+                               A0A068RED7/32-75 
+                                          FALSE 
+                               A0A023RQY2/23-62 
+                                          FALSE 
+                                   C4K5C9/32-76 
+                                          FALSE 
+                               A0A0C2WIL6/36-77 
+                                           TRUE 
+                                    K9VLQ5/5-51 
+                                           TRUE 
+                               A0A0D8HNE6/24-64 
+                                           TRUE 
+                                    U1P7U7/2-44 
+                                           TRUE 
+                                    K9V175/6-48 
+                                           TRUE 
+                               A0A077SJD0/28-66 
+                                          FALSE 
+                               A0A0A1LSN2/28-66 
+                                          FALSE 
+                                   U4M8Z1/28-66 
+                                          FALSE 
+                                   E6Q8U3/31-68 
+                                          FALSE 
+                               A0A0F5D7X9/29-77 
+                                           TRUE 
+                                   B7NZZ8/23-66 
+                                          FALSE 
+                                   H0FCF2/24-59 
+                                          FALSE 
+                                   T2AAN9/24-59 
+                                          FALSE 
+                                    G6FSM4/6-40 
+                                           TRUE 
+                               A0A0F1A5V8/31-66 
+                                          FALSE 
+                               A0A0F3Y7M4/31-66 
+                                          FALSE 
+                                   A1Y2U0/31-66 
+                                          FALSE 
+                                   H6BDZ3/31-66 
+                                          FALSE 
+                                   Q4W1Q5/31-66 
+                                          FALSE 
+                                   Q9XAW9/31-66 
+                                          FALSE 
+                                A0A0D6YB80/6-40 
+                                           TRUE 
+                                   M5S0M0/30-72 
+                                           TRUE 
+                                    D7E264/9-49 
+                                           TRUE 
+                                    M0N320/2-44 
+                                           TRUE 
+                                   C8X5T5/33-69 
+                                          FALSE 
+                               A0A0A3YL57/31-75 
+                                          FALSE 
+                                   X1VRR3/23-64 
+                                           TRUE 
+                               A0A0F9QTI2/11-44 
+                                           TRUE 
+                                A0A0C2QTU2/7-48 
+                                           TRUE 
+                               A0A0C2R0C4/20-61 
+                                           TRUE 
+                               A0A0D5A0A8/32-69 
+                                          FALSE 
+                               A0A0F7KYP1/32-69 
+                                          FALSE 
+                                   B3GN64/21-66 
+                                          FALSE 
+                                   Q8GF42/21-66 
+                                          FALSE 
+                                A0A0F8YVM5/8-42 
+                                           TRUE 
+                                   H1XN86/35-71 
+                                          FALSE 
+                               A0A0A3WH88/35-82 
+                                          FALSE 
+                                   U4M7N6/35-82 
+                                          FALSE 
+                               A0A0A1KP82/39-83 
+                                          FALSE 
+                                   C4K813/32-71 
+                                          FALSE 
+                                   Q8FLJ1/36-89 
+                                           TRUE 
+                                    X1EE99/7-45 
+                                           TRUE 
+                               A0A073CA55/39-78 
+                                           TRUE 
+                                   V6AS99/13-47 
+                                           TRUE 
+                                   A3X2R3/39-78 
+                                          FALSE 
+                                   C8X5U4/15-69 
+                                           TRUE 
+                                    F7PJH7/2-44 
+                                           TRUE 
+                                   X0QTB5/19-68 
+                                          FALSE 
+                               A0A0F8VDY7/10-45 
+                                           TRUE 
+                                   L7L2A9/46-83 
+                                           TRUE 
+                               A0A061YVH7/27-66 
+                                          FALSE 
+                                   G4U4S9/27-66 
+                                          FALSE 
+                                   W4S9C4/27-66 
+                                          FALSE 
+                                   W4SGQ6/27-66 
+                                          FALSE 
+                                  V5XUV2/59-101 
+                                           TRUE 
+                                 K9YBZ8/616-662 
+                                           TRUE 
+                               A0A0B3SGQ8/21-68 
+                                           TRUE 
+                                    Q0F3N8/3-47 
+                                           TRUE 
+                                   L7CIM3/27-75 
+                                          FALSE 
+                                   I1AZ85/17-67 
+                                           TRUE 
+                                    J2DK02/2-38 
+                                          FALSE 
+                                    U1Q8F3/2-43 
+                                           TRUE 
+                                   C6AEQ6/31-69 
+                                          FALSE 
+                                   K5D831/31-74 
+                                          FALSE 
+                               A0A098I7P7/35-71 
+                                          FALSE 
+                               A0A0B0J2G7/35-71 
+                                          FALSE 
+                                   M4U470/35-71 
+                                          FALSE 
+                                 K9YXZ0/584-635 
+                                           TRUE 
+                                A0A0A2HZR0/2-45 
+                                           TRUE 
+                               A0A0D6KFG1/24-57 
+                                           TRUE 
+                               A0A0F4IEC9/21-64 
+                                           TRUE 
+                                   F9ZUV4/37-71 
+                                          FALSE 
+                                    K9W712/6-40 
+                                           TRUE 
+                                   E7PDY6/33-67 
+                                          FALSE 
+                                   Q88BQ0/33-67 
+                                          FALSE 
+                                   S6MVM0/33-67 
+                                          FALSE 
+                                   L7C888/21-67 
+                                           TRUE 
+                                   M3TUC6/43-86 
+                                           TRUE 
+                                   Q663B7/25-67 
+                                          FALSE 
+                               A0A0F0GYE1/21-64 
+                                           TRUE 
+                               A0A015X2U6/50-91 
+                                          FALSE 
+                               A0A088F5T3/50-91 
+                                          FALSE 
+                                   B6W3D5/50-91 
+                                          FALSE 
+                                   C6IQM4/50-91 
+                                          FALSE 
+                                   C6Z9A5/50-91 
+                                          FALSE 
+                                   F3PNY5/50-91 
+                                          FALSE 
+                                   F7LMW8/50-91 
+                                          FALSE 
+                                   G6AV06/50-91 
+                                          FALSE 
+                                   G9S3I8/50-91 
+                                          FALSE 
+                                   I9AJH4/50-91 
+                                          FALSE 
+                                   K1FRK6/50-91 
+                                          FALSE 
+                                   S0FB78/50-91 
+                                          FALSE 
+                               A0A096Y6L9/31-73 
+                                          FALSE 
+                               A0A098KWW6/31-73 
+                                          FALSE 
+                               A0A015UAT9/33-83 
+                                          FALSE 
+                               A0A016CWP1/33-83 
+                                          FALSE 
+                                   B7AFD4/33-83 
+                                          FALSE 
+                                   E4VQV0/33-83 
+                                          FALSE 
+                                   I8YZQ4/33-83 
+                                          FALSE 
+                                   I9FBX3/33-83 
+                                          FALSE 
+                                   I9PU41/33-83 
+                                          FALSE 
+                                   K7X304/11-45 
+                                           TRUE 
+                               A0A0D6YNY8/18-50 
+                                           TRUE 
+                              A0A0D5NBM9/86-124 
+                                           TRUE 
+                                  Q74CF5/86-124 
+                                           TRUE 
+                               A0A081BTE4/17-49 
+                                           TRUE 
+                               A0A015ZBQ2/33-83 
+                                          FALSE 
+                                   B3JIP8/33-83 
+                                          FALSE 
+                                   D1K5Q2/33-83 
+                                          FALSE 
+                                   K1U5Q5/33-83 
+                                          FALSE 
+                              A0A0C1QNN3/86-124 
+                                           TRUE 
+                                    Q6MCI6/5-39 
+                                           TRUE 
+                               A0A0F4KHC3/23-64 
+                                           TRUE 
+                                   J0PP35/32-69 
+                                          FALSE 
+                               A0A0F9GZY2/19-68 
+                                          FALSE 
+                                   X0R121/19-68 
+                                          FALSE 
+                                A0A098J768/2-40 
+                                          FALSE 
+                                   B4V2V5/25-66 
+                                           TRUE 
+                                   J1IXM2/31-69 
+                                          FALSE 
+                                   J0Q1X0/32-68 
+                                          FALSE 
+                                   H9BQT8/15-66 
+                                           TRUE 
+                               A0A0B2A0S2/29-74 
+                                          FALSE 
+                               A0A0C1Q4C5/29-74 
+                                          FALSE 
+                                   B2UKE0/29-74 
+                                          FALSE 
+                                   C6BRA3/29-74 
+                                          FALSE 
+                                   R0CDV9/29-74 
+                                          FALSE 
+                                   S9RRB2/29-74 
+                                          FALSE 
+                                   U3G6E7/29-74 
+                                          FALSE 
+                                   R9WTK0/17-54 
+                                           TRUE 
+                                    A2C3W3/2-43 
+                                           TRUE 
+  random sequence 1 consisting of 100 residues. 
+                                           TRUE 
+  random sequence 2 consisting of 100 residues. 
+                                           TRUE 
+  random sequence 3 consisting of 100 residues. 
+                                           TRUE 
+  random sequence 4 consisting of 100 residues. 
+                                           TRUE 
+  random sequence 5 consisting of 100 residues. 
+                                           TRUE 
+  random sequence 6 consisting of 100 residues. 
+                                           TRUE 
+  random sequence 7 consisting of 100 residues. 
+                                           TRUE 
+  random sequence 8 consisting of 100 residues. 
+                                           TRUE 
+  random sequence 9 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 10 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 11 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 12 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 13 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 14 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 15 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 16 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 17 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 18 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 19 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 20 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 21 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 22 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 23 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 24 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 25 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 26 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 27 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 28 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 29 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 30 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 31 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 32 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 33 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 34 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 35 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 36 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 37 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 38 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 39 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 40 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 41 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 42 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 43 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 44 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 45 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 46 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 47 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 48 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 49 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 50 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 51 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 52 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 53 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 54 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 55 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 56 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 57 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 58 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 59 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 60 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 61 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 62 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 63 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 64 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 65 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 66 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 67 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 68 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 69 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 70 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 71 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 72 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 73 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 74 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 75 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 76 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 77 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 78 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 79 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 80 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 81 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 82 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 83 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 84 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 85 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 86 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 87 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 88 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 89 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 90 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 91 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 92 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 93 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 94 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 95 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 96 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 97 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 98 consisting of 100 residues. 
+                                           TRUE 
+ random sequence 99 consisting of 100 residues. 
+                                           TRUE 
+random sequence 100 consisting of 100 residues. 
+                                           TRUE 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("odseq_unaligned", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("seqs")
+> ### * seqs
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: seqs
+> ### Title: PFAM plus random data.
+> ### Aliases: seqs
+> 
+> ### ** Examples
+> 
+> data(seqs)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("seqs", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> ### * <FOOTER>
+> ###
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  16.968 0.136 17.096 0 0 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

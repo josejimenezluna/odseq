@@ -26,7 +26,7 @@ We call `odseq`, and it will return a logical vector (`TRUE` if the sequence is 
 y <- odseq(alig, threshold = 0.05, distance_metric = "affine", B = 1000)
 ```
 
-In practice, `odseq` will discard a lot of the sequences if the overall quality of the multiple alignment is low. This is the intended purpose.
+In practice, `odseq` will discard a lot of the sequences if the overall quality of the multiple alignment is low, since the estimation of the mean of the distances is affected. This is the intended purpose. 
 
 ### References
 

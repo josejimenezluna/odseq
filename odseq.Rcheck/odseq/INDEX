@@ -1,0 +1,7 @@
+odseq                   Outlier detection in a multiple sequence
+                        alignment
+odseq-package           Outlier detection in multiple sequence
+                        alignments
+odseq_unaligned         Outlier detection provided a
+                        distance/similarity matrix of sequences.
+seqs                    PFAM plus random data.

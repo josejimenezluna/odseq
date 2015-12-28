@@ -1,0 +1,77 @@
+* using log directory ‘/home/hawk31/ownCloud/Master/FBIO/Trabajo_fin_asignatura/odseq/odseq.Rcheck’
+* using R version 3.2.3 (2015-12-10)
+* using platform: x86_64-pc-linux-gnu (64-bit)
+* using session charset: UTF-8
+* using option ‘--as-cran’
+* checking for file ‘odseq/DESCRIPTION’ ... OK
+* checking extension type ... Package
+* this is package ‘odseq’ version ‘0.9’
+* package encoding: UTF-8
+* checking CRAN incoming feasibility ... NOTE
+Maintainer: ‘José Jiménez <jose@jimenezluna.com>’
+New submission
+
+License components with restrictions and base license permitting such:
+  MIT + file LICENSE
+File 'LICENSE':
+  YEAR: 2015
+  COPYRIGHT HOLDER: José Jiménez
+
+The Title field should be in title case, current version then in title case:
+‘Outlier detection in multiple sequence alignments’
+‘Outlier Detection in Multiple Sequence Alignments’
+* checking package namespace information ... OK
+* checking package dependencies ... NOTE
+  No repository set, so cyclic dependency check skipped
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... OK
+* checking for portable file names ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘odseq’ can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking DESCRIPTION meta-information ... OK
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking use of S3 registration ... OK
+* checking dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... NOTE
+odseq: warning in sample(distance_scores, n, rep = T): argumentos
+  parcialmente correctos de 'rep' a 'replace'
+odseq_unaligned: warning in sample(distance_scores, n, rep = T):
+  argumentos parcialmente correctos de 'rep' a 'replace'
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd line widths ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking contents of ‘data’ directory ... OK
+* checking data for non-ASCII characters ... OK
+* checking data for ASCII and uncompressed saves ... OK
+* checking examples ... OK
+Examples with CPU or elapsed time > 5s
+               user system elapsed
+odseq-package 6.388  0.016   6.402
+odseq         6.132  0.020   6.146
+* checking PDF version of manual ... OK
+* DONE
+Status: 3 NOTEs

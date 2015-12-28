@@ -6,4 +6,10 @@ Date: 2015-12-20
 Author: José Jiménez
 Maintainer: José Jiménez <jose@jimenezluna.com>
 Description: Performs outlier detection using bootstrap of distance metrics of the multiple alignment.
-License: MIT License.
+License: MIT + file LICENSE
+LazyData: True
+Encoding: UTF-8
+Depends: R (>= 3.2.3),
+	 msa (>= 1.2.1),
+	 kebabs (>= 1.4.1)
+

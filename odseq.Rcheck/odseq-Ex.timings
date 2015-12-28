@@ -1,0 +1,5 @@
+name	user	system	elapsed
+odseq-package	6.388	0.016	6.402	
+odseq	6.132	0.020	6.146	
+odseq_unaligned	0.08	0.00	0.08	
+seqs	0.000	0.000	0.002	
