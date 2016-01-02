@@ -1,7 +1,7 @@
 Package: odseq
 Type: Package
 Title: Outlier detection in multiple sequence alignments
-Version: 0.9
+Version: 0.90.0
 Date: 2015-12-20
 Author: José Jiménez
 Maintainer: José Jiménez <jose@jimenezluna.com>
@@ -9,6 +9,7 @@ Description: Performs outlier detection using bootstrap of distance metrics of t
 License: MIT + file LICENSE
 LazyData: True
 Encoding: UTF-8
+biocViews: Alignment, MultipleSequenceAlignment
 Depends: R (>= 3.2.3), msa (>= 1.2.1), kebabs (>= 1.4.1)
 NeedsCompilation: no
-Packaged: 2015-12-28 01:19:06 UTC; hawk31
+Packaged: 2016-01-01 23:52:36 UTC; hawk31

@@ -2037,7 +2037,7 @@ random sequence 100 consisting of 100 residues.
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  16.968 0.136 17.096 0 0 
+Time elapsed:  16.708 0.104 16.795 0 0 
 > grDevices::dev.off()
 null device 
           1 

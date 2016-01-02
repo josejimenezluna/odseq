@@ -7,7 +7,7 @@ odseq_unaligned <- function(distance_matrix, B = 100, threshold = 0.025, type = 
 
   # Perform bootstrap of distance scores  
   
-  distribution_scores <- replicate(B, {boot <- sample(distance_scores, n, rep = T);
+  distribution_scores <- replicate(B, {boot <- sample(distance_scores, n, replace = TRUE);
                             mean(boot)})
   
   # Return logical vector of outliers, using threshold

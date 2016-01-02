@@ -5,7 +5,7 @@
 * using option ‘--as-cran’
 * checking for file ‘odseq/DESCRIPTION’ ... OK
 * checking extension type ... Package
-* this is package ‘odseq’ version ‘0.9’
+* this is package ‘odseq’ version ‘0.90.0’
 * package encoding: UTF-8
 * checking CRAN incoming feasibility ... NOTE
 Maintainer: ‘José Jiménez <jose@jimenezluna.com>’
@@ -50,11 +50,7 @@ The Title field should be in title case, current version then in title case:
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
-* checking R code for possible problems ... NOTE
-odseq: warning in sample(distance_scores, n, rep = T): argumentos
-  parcialmente correctos de 'rep' a 'replace'
-odseq_unaligned: warning in sample(distance_scores, n, rep = T):
-  argumentos parcialmente correctos de 'rep' a 'replace'
+* checking R code for possible problems ... OK
 * checking Rd files ... OK
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK
@@ -67,11 +63,12 @@ odseq_unaligned: warning in sample(distance_scores, n, rep = T):
 * checking contents of ‘data’ directory ... OK
 * checking data for non-ASCII characters ... OK
 * checking data for ASCII and uncompressed saves ... OK
+* checking files in ‘vignettes’ ... OK
 * checking examples ... OK
 Examples with CPU or elapsed time > 5s
-               user system elapsed
-odseq-package 6.388  0.016   6.402
-odseq         6.132  0.020   6.146
+              user system elapsed
+odseq-package 6.22  0.020   6.233
+odseq         6.22  0.016   6.229
 * checking PDF version of manual ... OK
 * DONE
-Status: 3 NOTEs
+Status: 2 NOTEs

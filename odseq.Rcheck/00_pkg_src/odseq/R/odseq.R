@@ -66,7 +66,7 @@ function(msa_object, distance_metric = "linear", B = 100,
   
   # Perform bootstrapping of distance scores
   
-  distribution_scores <- replicate(B, {boot <- sample(distance_scores, n, rep = T);
+  distribution_scores <- replicate(B, {boot <- sample(distance_scores, n, replace = TRUE);
                                       mean(boot)})
   
   # Return logical vector of outliers, using threshold

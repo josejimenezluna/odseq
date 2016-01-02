@@ -8,7 +8,7 @@ PFAM plus random data.
 Sequences from a certain PFAM family plus 100 random sequences.
 }
 \usage{data("seqs")}
-\format{
+\value{
   An object of class \code{AAStringSet}.
 }
 

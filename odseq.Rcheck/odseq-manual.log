@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.10.26)  28 DEC 2015 02:23
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.10.26)  2 JAN 2016 00:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -685,8 +685,8 @@ LaTeX Font Info:    Try loading font information for T1+zi4 on input line 22.
 File: t1zi4.fd 2013/06/09 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 30.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 30.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 31.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 31.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
@@ -703,7 +703,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 )
-Overfull \hbox (15.39816pt too wide) in alignment at lines 57--57
+Overfull \hbox (15.39816pt too wide) in alignment at lines 59--59
  [] [] 
  []
 
@@ -714,7 +714,7 @@ Overfull \hbox (15.39816pt too wide) in alignment at lines 57--57
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 ) [2]
-LaTeX Font Info:    Try loading font information for TS1+zi4 on input line 112.
+LaTeX Font Info:    Try loading font information for TS1+zi4 on input line 114.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/ts1zi4.fd
@@ -723,7 +723,7 @@ File: ts1zi4.fd 2013/06/07 Fontinst v1.933 font definitions for TS1/zi4.
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 ) [3]
-Overfull \hbox (0.78088pt too wide) in paragraph at lines 155--155
+Overfull \hbox (0.78088pt too wide) in paragraph at lines 157--157
  []\T1/zi4/m/n/10 odseq_unaligned(distance_matrix, B = 100, threshold = 0.025, 
 type = "similarity")[] 
  []
@@ -735,14 +735,14 @@ File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 228.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 228.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 230.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 230.
  (./Rd2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 228.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 228.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 230.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 230.
 Package rerunfilecheck Info: File `Rd2.out' has not changed.
 (rerunfilecheck)             Checksum: 3D7F8EF11B64D5CB90E592F4BD1D4BC7;253.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 228.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 230.
  ) 
 Here is how much of TeX's memory you used:
  6363 strings out of 494925
@@ -760,7 +760,7 @@ fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8
 a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (6 pages, 77427 bytes).
+Output written on Rd2.pdf (6 pages, 77527 bytes).
 PDF statistics:
  144 PDF objects out of 1000 (max. 8388607)
  128 compressed objects within 2 object streams
