@@ -68,18 +68,19 @@ No file Rd2.aux.
 (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd)
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
-Overfull \hbox (15.39816pt too wide) in alignment at lines 59--59
+Overfull \hbox (32.57793pt too wide) in alignment at lines 64--64
  [] [] 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [2]
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
 (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [3]
-Overfull \hbox (0.78088pt too wide) in paragraph at lines 157--157
- []\T1/zi4/m/n/10 odseq_unaligned(distance_matrix, B = 100, threshold = 0.025, 
-type = "similarity")[] 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [4]
+Overfull \hbox (0.78088pt too wide) in paragraph at lines 218--218
+ []\T1/zi4/m/n/10 odseq_unaligned(distance_matrix, B = 100, threshold = 0.025, 
+type = "similarity")[] 
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [5]
 No file Rd2.ind.
-[5] (./Rd2.aux)
+[6] (./Rd2.aux)
 
 Package rerunfilecheck Warning: File `Rd2.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
@@ -95,12 +96,12 @@ consolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr
 are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (5 pages, 74834 bytes).
+Output written on Rd2.pdf (6 pages, 78336 bytes).
 Transcript written on Rd2.log.
 This is makeindex, version 2.15 [TeX Live 2013] (kpathsea + Thai support).
-Scanning input file Rd2.idx....done (8 entries accepted, 0 rejected).
-Sorting entries....done (26 comparisons).
-Generating output file Rd2.ind....done (13 lines written, 0 warnings).
+Scanning input file Rd2.idx....done (11 entries accepted, 0 rejected).
+Sorting entries....done (38 comparisons).
+Generating output file Rd2.ind....done (14 lines written, 0 warnings).
 Output written in Rd2.ind.
 Transcript written in Rd2.ilg.
 This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian)
@@ -170,17 +171,18 @@ Writing index file Rd2.idx
 (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd) (./Rd2.toc)
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
-Overfull \hbox (15.39816pt too wide) in alignment at lines 59--59
+Overfull \hbox (32.57793pt too wide) in alignment at lines 64--64
  [] [] 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [2]
-(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [3]
-Overfull \hbox (0.78088pt too wide) in paragraph at lines 157--157
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/ts1zi4.fd) [3]
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [4]
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (0.78088pt too wide) in paragraph at lines 218--218
  []\T1/zi4/m/n/10 odseq_unaligned(distance_matrix, B = 100, threshold = 0.025, 
 type = "similarity")[] 
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [4] (./Rd2.ind [5]
-[6]) (./Rd2.aux)
+[5] (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) (./Rd2.ind [6]
+[7]) (./Rd2.aux)
 
 Package rerunfilecheck Warning: File `Rd2.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
@@ -196,12 +198,12 @@ consolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr
 are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (6 pages, 77270 bytes).
+Output written on Rd2.pdf (7 pages, 80956 bytes).
 Transcript written on Rd2.log.
 This is makeindex, version 2.15 [TeX Live 2013] (kpathsea + Thai support).
-Scanning input file Rd2.idx....done (8 entries accepted, 0 rejected).
-Sorting entries....done (26 comparisons).
-Generating output file Rd2.ind....done (13 lines written, 0 warnings).
+Scanning input file Rd2.idx....done (11 entries accepted, 0 rejected).
+Sorting entries....done (38 comparisons).
+Generating output file Rd2.ind....done (14 lines written, 2 warnings).
 Output written in Rd2.ind.
 Transcript written in Rd2.ilg.
 This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian)
@@ -271,17 +273,18 @@ Writing index file Rd2.idx
 (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd) (./Rd2.toc)
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
-Overfull \hbox (15.39816pt too wide) in alignment at lines 59--59
+Overfull \hbox (32.57793pt too wide) in alignment at lines 64--64
  [] [] 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [2]
-(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [3]
-Overfull \hbox (0.78088pt too wide) in paragraph at lines 157--157
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/ts1zi4.fd) [3]
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [4]
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (0.78088pt too wide) in paragraph at lines 218--218
  []\T1/zi4/m/n/10 odseq_unaligned(distance_matrix, B = 100, threshold = 0.025, 
 type = "similarity")[] 
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [4] (./Rd2.ind [5]
-[6]) (./Rd2.aux) )
+[5] (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) (./Rd2.ind [6]
+[7]) (./Rd2.aux) )
 (see the transcript file for additional information){/usr/share/texlive/texmf-d
 ist/fonts/enc/dvips/inconsolata/i4-ts1.enc}{/usr/share/texlive/texmf-dist/fonts
 /enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsola
@@ -291,8 +294,8 @@ consolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr
 are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (6 pages, 77527 bytes).
+Output written on Rd2.pdf (7 pages, 81249 bytes).
 Transcript written on Rd2.log.
 Saving output to 'odseq-manual.pdf' ...
 Done
-You may want to clean up by 'rm -rf /tmp/RtmplYiN6Q/Rd2pdf12b14c095a06'
+You may want to clean up by 'rm -rf /tmp/RtmpX0pdDc/Rd2pdf20eb48dee508'

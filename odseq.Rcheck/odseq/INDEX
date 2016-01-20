@@ -1,3 +1,5 @@
+odmix                   Gaussian mixture modelling of distances in a
+                        multiple sequence alignment.
 odseq                   Outlier detection in a multiple sequence
                         alignment
 odseq-package           Outlier detection in multiple sequence

@@ -1,7 +1,7 @@
 Package: odseq
 Type: Package
 Title: Outlier detection in multiple sequence alignments
-Version: 0.90.1
+Version: 0.99.2
 Date: 2015-12-20
 Author: José Jiménez
 Maintainer: José Jiménez <jose@jimenezluna.com>
@@ -13,5 +13,7 @@ biocViews: Alignment, MultipleSequenceAlignment
 VignetteBuilder: knitr
 Depends: R (>= 3.2.3),
 	 msa (>= 1.2.1),
-	 kebabs (>= 1.4.1)
+	 kebabs (>= 1.4.1),
+	 mclust (>= 5.1),
+	 knitr(>= 1.11)
 
