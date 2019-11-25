@@ -26,6 +26,10 @@ Float indicating the probability to be left at the right of the bootstrap scores
 A string indicating the type of distance metric used. Either \code{'similarity'} or \code{'distance'}.
 }
 
+  \item{weights}{
+Numeric vector with the same length as the \code{msa_object}, giving weights for each sequence.  In particular, if these are integer values, then the result will be the same as if each row and column in the distance matrix was repeated a number of times equal to its weight, but will be calculated much more quickly.
+}
+
 
 }
 

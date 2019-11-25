@@ -7,7 +7,7 @@ Outlier detection in a multiple sequence alignment
 This function will first compute a distance metric among every sequence in the multiple alignment. Then it will bootstrap an average score of these distance to provide information on the distribution of scores, which is used to distinguish outlier sequences with a certain threshold
 }
 \usage{
-odseq(msa_object, distance_metric = "linear", B = 100, threshold = 0.025)
+odseq(msa_object, distance_metric = "linear", B = 100, threshold = 0.025, weights = NULL)
 }
 \arguments{
   \item{msa_object}{
@@ -21,6 +21,9 @@ Integer indicating the number of bootstrap replicates to be run. The higher the 
 }
   \item{threshold}{
 Float indicating the probability to be left at the right of the bootstrap scores distribution when computing outliers. This parameter may need some tuning depending on each specific problem
+}
+  \item{weights}{
+Numeric vector with the same length as the \code{msa_object}, giving weights for each sequence.  In particular, if these are integer values, then the result will be the same as if each sequence was repeated in the alignment a number of times equal to its weight, but will be calculated much more quickly.
 }
 }
 
